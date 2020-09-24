@@ -1,0 +1,105 @@
+<view class='head'>
+  <view >
+    <text class='font'>{{nowTemp}}</text>
+  </view>
+  <view class='temperaturetime' style="display:{{display}};">
+    <text style="font-size:40rpx;color:white;">剩余时间</text>
+   <view class='font_time'><text>{{remainTimeText}}</text></view>
+  </view>
+</view>
+<view class="index-container">
+
+  <view class='login'>
+    <image class="login-header-bg" src="../image/head-footer.png" style="width:100%;height:100%"></image>
+  </view>
+</view>
+<view class='index-container2'>
+  <text type="primary" class="button1" bindtap="settingtemp">设 置 温 度</text>
+  <text type="primary" class="button2" >{{displaytemp}}</text>
+</view>
+
+<view class='kuang1'>
+  <view class='yinying2'>
+    <view class="weui-cell weui-cell_access">
+      <image src='../image/blue.png' style="margin-right: 20rpx;margin-left: 10rpx;align-items: center;width:35px; height: 35px;"></image>
+      <view class='xianshi1'>
+        <view class='xianshi2'>
+          <view class='h21'>
+            <text style="margin-right:240rpx;color:white;">蓝牙</text>
+            <switch checked='{{isChecked1}}' bindchange="switch3Change" color='#e5b4C2'></switch>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='kuang'>
+  <view class='yinying2'>
+    <view class="weui-cell weui-cell_access">
+      <image src='../image/switch5.png' style="display: flex;margin-right: 30rpx;margin-left: 10rpx;align-items: center;width:30px; height: 30px;"></image>
+      <view class='xianshi1'>
+        <view class='xianshi2'>
+          <view class='h21'>
+            <text style="margin-right:150rpx;color:white;">艾宝开关</text>
+            <switch bindchange="switch2Change" color='#e5b4C2'></switch>
+          </view>
+
+
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='kuang'>
+  <view class='yinying2'>
+    <view class="weui-cell weui-cell_access">
+      <image src='../image/history.png' style="display: flex;margin-left:10rpx;margin-right: 30rpx;align-items: center;width:30px; height: 30px;"></image>
+      <view class='xianshi1'>
+        <view class='xianshi2'>
+          <view class='h21'>
+            <text style="margin-right:150rpx;color:white;">定时关闭</text>
+            <switch checked="{{isChecked}}" bindchange="switch1Change" color='#e5b4C2'></switch>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!--弹出框  -->
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="modal-dialog" wx:if="{{showModal}}">
+  <view class="modal-title" style='color:white;'>定时加热</view>
+  <view class="modal-content">
+    <view class="body-view">
+      <view class="section panel">
+        <text class="section_title" style='color:grey;'>工作时长(分钟)</text>
+        <view class="section_body">
+         <slider bindchange="changeWorkTime" selected-color='#ff668c'block-color='#00aa00' show-value="true" min="1" max="90" value="{{workTime}}" left-icon="cancel" right-icon="success_no_circle" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="modal-footer">
+    <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+    <view class="btn-confirm" bindtap="startTimer" data-status="confirm">确定</view>
+  </view>
+</view>
+
+<view class="modal-mask" bindtap="hideModalTemp" catchtouchmove="preventTouchMove" wx:if="{{showModalTemp}}"></view>
+<view class="modal-dialog" wx:if="{{showModalTemp}}">
+  <view class="modal-title" style='color:white;'>设置温度</view>
+  <view class="modal-content">
+    <view class="body-view">
+      <view class="section panel">
+        <text class="section_title" style='color:grey;'>请选择设置的温度（℃）</text>
+        <view class="section_body">
+          <slider selected-color='#ff668c'block-color='#00aa00'  bindchange="changeTempture" show-value="true" min="30" max="50" value="{{setTemp}}" left-icon="cancel" right-icon="success_no_circle" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="modal-footer">
+    <view class="btn-cancel" bindtap="onCancelTemp" data-status="cancel">取消</view>
+    <view class="btn-confirm" bindtap="onConfirmTemp" data-status="confirm">确定</view>
+  </view>
+</view>

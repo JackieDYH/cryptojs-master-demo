@@ -1,0 +1,17 @@
+{
+  "pages":[
+      "pages/index/index"
+       ],
+  "window":{
+    "enablePullDownRefresh": true,
+    "onReachBottomDistance": 50,
+    "backgroundColor": "#fff",
+    
+    "navigationBarBackgroundColor":"#fe668c",
+    "backgroundTextStyle":"dark",
+    "navigationBarTextStyle":"white",
+    "navigationBarTitleText": "艾宝小程序"
+    
+  }
+  
+}
